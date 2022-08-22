@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"os"
 
@@ -26,6 +27,6 @@ func main() {
 		JwtKey:         os.Getenv("JWT_SECRET"),
 		DatabaseConfig: dbConfig,
 	}
-	s := server.NewServer(serverConfig)
+	s := server.NewServer(context.Background(), serverConfig)
 	s.Start()
 }
