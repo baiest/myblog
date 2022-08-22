@@ -8,6 +8,17 @@ import (
 	"github.com/gorilla/mux"
 )
 
+var Routes = []models.RouteHandle{
+	{
+		Path:   "/auth",
+		Router: AddRouter(AuthRoutes),
+	},
+	{
+		Path:   "/users",
+		Router: AddRouter(UserRoutes),
+	},
+}
+
 func AddRoutes(r *mux.Router) {
 	for _, route := range Routes {
 		route.Router(r.PathPrefix(route.Path).Subrouter())
@@ -28,19 +39,4 @@ func AddRouter(routes []models.Route) func(r *mux.Router) {
 			).Methods(route.Method)
 		}
 	}
-}
-
-var Routes = []models.RouteHandle{
-	{
-		Path:   "/auth",
-		Router: AddRouter(AuthRoutes),
-	},
-	{
-		Path:   "/users",
-		Router: AddRouter(UserRoutes),
-	},
-}
-
-func init() {
-
 }
