@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/baiest/myblog/myblog-backend/db"
 	"github.com/baiest/myblog/myblog-backend/middlewares"
 	"github.com/baiest/myblog/myblog-backend/models"
 	"github.com/baiest/myblog/myblog-backend/services"
@@ -24,6 +25,8 @@ func NewServer(ctx context.Context, config models.ConfigServer) *Server {
 }
 
 func (s *Server) Start() {
+	db.NewConnection(s.config.DatabaseConfig)
+
 	s.router.Use(middlewares.SetContentType)
 	services.AddRoutes(s.router)
 

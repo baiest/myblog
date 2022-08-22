@@ -3,32 +3,21 @@ package services
 import (
 	"net/http"
 
-	"github.com/baiest/myblog/myblog-backend/handlers/bye"
-	"github.com/baiest/myblog/myblog-backend/handlers/hello"
+	"github.com/baiest/myblog/myblog-backend/handlers/auth"
 	"github.com/baiest/myblog/myblog-backend/models"
-	"github.com/gorilla/mux"
 )
 
-var helloHandler = hello.NewByeHandler()
-var byeHandler = bye.NewByeHandler()
+var authHandler = auth.NewAuthHandler()
 
-var routes = []models.Route{
+var AuthRoutes = []models.Route{
 	{
-		Path:    "",
-		Handler: helloHandler.Create,
-		Method:  http.MethodGet,
+		Path:    "/singin",
+		Handler: authHandler.SingIn,
+		Method:  http.MethodPost,
 	},
 	{
-		Path:    "/bye",
-		Handler: byeHandler.Create,
-		Method:  http.MethodGet,
+		Path:    "/login",
+		Handler: authHandler.Login,
+		Method:  http.MethodPost,
 	},
-}
-
-func AuthRouter(path string, r *mux.Router) {
-	router := r.PathPrefix(path).Subrouter()
-
-	for _, route := range routes {
-		router.HandleFunc(route.Path, route.Handler).Methods(route.Method)
-	}
 }

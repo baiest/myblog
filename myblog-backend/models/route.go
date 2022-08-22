@@ -7,12 +7,13 @@ import (
 )
 
 type Route struct {
-	Path    string
-	Handler http.HandlerFunc
-	Method  string
+	Path        string
+	Handler     http.HandlerFunc
+	Method      string
+	IsProtected bool
 }
 
 type RouteHandle struct {
 	Path   string
-	Router func(path string, r *mux.Router)
+	Router func(r *mux.Router)
 }
