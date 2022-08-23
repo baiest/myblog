@@ -1,10 +1,14 @@
 import { Post } from './../models/Post';
-import axios from 'axios'
+import axios from './axios'
 
-const apiUrl = '/users'
+const apiUrl = '/posts'
 
 export class PostService{
   static async getPosts(): Promise<Post[]>{
-    return (await axios.get(`http://localhost:5000/api${apiUrl}`)).data
+    return (await axios.get<Post[]>(apiUrl)).data
+      .map((p: Post) => ({
+        ...p,
+        created_at: new Date(p.created_at)
+      }))
   }
 }
