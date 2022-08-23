@@ -5,3 +5,8 @@ export interface Post {
   id_user: number
   created_at: Date
 }
+
+export interface PostDAO {
+  title: string
+  content: string
+}

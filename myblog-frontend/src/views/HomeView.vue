@@ -11,6 +11,14 @@ const login = async() => {
 }
 </script>
 <template>
+<main>
   <PostList />
-  <button @click="login">Login</button>
+  <!-- <button @click="login"></button> -->
+</main>
 </template>
+
+<style scoped>
+main {
+  padding: 10px;
+}
+</style>

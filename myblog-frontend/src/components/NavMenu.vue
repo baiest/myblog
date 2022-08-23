@@ -2,10 +2,10 @@
 
 <template>
     <nav>
-      <h1>My Blog</h1>
+      <h1><router-link :to="{ name: 'home' }">My Blog</router-link></h1>
       <ul class="nav__menu">
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/post">New post</router-link></li>
+        <li><router-link :to="{ name: 'home' }">Home</router-link></li>
+        <li><router-link :to="{ name: 'post-create' }">New post</router-link></li>
       </ul>
     </nav>
 </template>

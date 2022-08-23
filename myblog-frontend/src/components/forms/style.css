@@ -1,0 +1,49 @@
+form {
+  padding: 3rem;
+  padding-top: 5rem;
+  width: fit-content;
+  min-width: 350px;
+  margin: auto;
+  position: relative;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  position: relative;
+  margin: 3rem 0;
+  --color: var(--main-color)
+}
+
+.form__input {
+  width: 100%;
+  padding: 7px 0;
+  border: none;
+  outline: none;
+  background: none;
+  color: var(--main-color);
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--second-background-color);
+}
+
+.form__label {
+  --color: var(--main-color);
+  position: absolute;
+  cursor: pointer;
+  color: var(--color);
+  top: 0;
+  left: 0;
+  transform: translateY(0);
+  transition: transform .2s, color .1s;
+}
+
+.form__input:focus {
+  --color: var(--second-background-color);
+}
+
+.form__input:focus+.form__label,
+.form__input:not(:placeholder-shown)+.form__label {
+  transform: translateY(-1.8rem);
+  transform-origin: top left;
+  --color: var(--second-background-color);
+}

@@ -10,7 +10,6 @@ export class AuthService {
     try {
       const response = await axios.post<AuthResponse>(`http://localhost:5000/api${apiUrl}/login`, data)
       TokenService.saveToken(response.data.token)
-      console.log("Guardado")
       return null
     } catch (error: any) {
       throw error
