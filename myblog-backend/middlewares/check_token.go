@@ -2,6 +2,7 @@ package middlewares
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"os"
 	"strconv"
@@ -12,7 +13,7 @@ import (
 )
 
 func CheckToken(next http.Handler) http.HandlerFunc {
-
+	fmt.Println("Hola check")
 	return func(w http.ResponseWriter, r *http.Request) {
 		var auth string = r.Header.Get("Authorization")
 		if auth == "" {
@@ -22,7 +23,12 @@ func CheckToken(next http.Handler) http.HandlerFunc {
 			})
 			return
 		}
-		tokenString := strings.Split(auth, " ")[1]
+		bearer := strings.Split(auth, " ")
+		var tokenString string
+		if len(bearer) > 1 {
+			tokenString = bearer[1]
+		}
+
 		token, err := jwt.ParseWithClaims(tokenString, &models.TokenClaims{}, func(t *jwt.Token) (interface{}, error) {
 			return []byte(os.Getenv("JWT_SECRET")), nil
 		})
