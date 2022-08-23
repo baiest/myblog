@@ -2,7 +2,6 @@ package middlewares
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"os"
 	"strconv"
@@ -13,7 +12,6 @@ import (
 )
 
 func CheckToken(next http.Handler) http.HandlerFunc {
-	fmt.Println("Hola check")
 	return func(w http.ResponseWriter, r *http.Request) {
 		var auth string = r.Header.Get("Authorization")
 		if auth == "" {

@@ -8,7 +8,7 @@ import (
 )
 
 func (u *UserHandler) GetAll(w http.ResponseWriter, r *http.Request) {
-	var usersResponse []models.UserResponse
+	var usersResponse = []models.UserResponse{}
 	users := u.userRepository.GetAll()
 	for _, user := range users {
 		usersResponse = append(usersResponse, models.UserResponse{

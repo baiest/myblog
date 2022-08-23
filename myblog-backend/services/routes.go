@@ -17,6 +17,10 @@ var Routes = []models.RouteHandle{
 		Path:   "/users",
 		Router: AddRouter(UserRoutes),
 	},
+	{
+		Path:   "/posts",
+		Router: AddRouter(PostRoutes),
+	},
 }
 
 func AddRoutes(r *mux.Router) {

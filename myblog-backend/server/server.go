@@ -28,6 +28,7 @@ func NewServer(ctx context.Context, config models.ConfigServer) *Server {
 
 func (s *Server) Start() {
 	db.NewConnection(s.config.DatabaseConfig)
+	db.Migrate()
 
 	s.router.Use(middlewares.SetContentType)
 	s.router.Use(middlewares.Logger)
