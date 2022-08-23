@@ -30,11 +30,5 @@ func (p *PostHandler) Create(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.WriteHeader(http.StatusCreated)
-	json.NewEncoder(w).Encode(&models.PostResponse{
-		Id:        post.Id,
-		Title:     post.Content,
-		Content:   post.Title,
-		IdUser:    post.IdUser,
-		CreatedAt: post.CreatedAt,
-	})
+	json.NewEncoder(w).Encode(models.PostToResponse(*post))
 }

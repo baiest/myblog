@@ -27,6 +27,6 @@ func (p PostRepository) Create(data models.PostCreate) (*models.Post, error) {
 
 func (p PostRepository) GetAll() []models.Post {
 	var posts []models.Post
-	db.DB.Find(&posts)
+	db.DB.Preload("User").Find(&posts)
 	return posts
 }

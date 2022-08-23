@@ -11,13 +11,7 @@ func (u *PostHandler) GetAll(w http.ResponseWriter, r *http.Request) {
 	var postResponse = []models.PostResponse{}
 	users := u.postRepository.GetAll()
 	for _, post := range users {
-		postResponse = append(postResponse, models.PostResponse{
-			Id:        post.Id,
-			Title:     post.Title,
-			Content:   post.Content,
-			IdUser:    post.IdUser,
-			CreatedAt: post.CreatedAt,
-		})
+		postResponse = append(postResponse, *models.PostToResponse(post))
 	}
 	json.NewEncoder(w).Encode(postResponse)
 }
