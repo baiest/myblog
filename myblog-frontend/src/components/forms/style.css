@@ -1,8 +1,7 @@
 form {
   padding: 3rem;
   padding-top: 5rem;
-  width: fit-content;
-  min-width: 350px;
+  min-width: 300px;
   margin: auto;
   position: relative;
 }
@@ -46,4 +45,8 @@ fieldset {
   transform: translateY(-1.8rem);
   transform-origin: top left;
   --color: var(--second-background-color);
+}
+
+.form__submit {
+  float: inline-end;
 }

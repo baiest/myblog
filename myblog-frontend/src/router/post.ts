@@ -1,9 +1,9 @@
 import { RouteRecordRaw } from "vue-router";
 export const postRoutes :RouteRecordRaw[] = [
   {
-    path: '/',
+    path: 'new',
     component: () => import('../components/forms/PostForm.vue'),
-    name: 'post-create'
+    name: 'post.create'
   },
   {
     path: ':id',
