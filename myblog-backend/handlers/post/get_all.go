@@ -13,8 +13,8 @@ func (u *PostHandler) GetAll(w http.ResponseWriter, r *http.Request) {
 	for _, post := range users {
 		postResponse = append(postResponse, models.PostResponse{
 			Id:        post.Id,
-			Title:     post.Content,
-			Content:   post.Title,
+			Title:     post.Title,
+			Content:   post.Content,
 			IdUser:    post.IdUser,
 			CreatedAt: post.CreatedAt,
 		})

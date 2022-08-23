@@ -33,7 +33,7 @@ func (a *AuthHandler) SingIn(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-
+	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(&models.UserResponse{
 		Id:       user.Id,
 		Name:     user.Name,
