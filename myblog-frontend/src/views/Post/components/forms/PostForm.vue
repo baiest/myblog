@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
-import { PostService } from '../../services/post';
-import {PostDAO} from '../../models/Post'
+import { PostService } from '../../../../services/post';
+import {PostDAO} from '../../../..//models/Post'
 import './style.css'
 import { useRouter } from 'vue-router';
 import { QuillEditor } from '@vueup/vue-quill'

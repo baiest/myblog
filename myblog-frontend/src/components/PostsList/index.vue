@@ -3,7 +3,7 @@ import PostCard from './PostCard.vue'
 import { Post } from '../../models/Post'
 import { Request } from '../../models/Request'
 import { PostService } from '../../services/post'
-import { onMounted, reactive, ref, watch } from 'vue';
+import { onMounted, reactive } from 'vue';
 import { computed } from '@vue/reactivity';
 
 const posts = reactive<Request<Post[]>>({

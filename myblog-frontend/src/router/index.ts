@@ -10,7 +10,7 @@ const routes:RouteRecordRaw[] = [
   },
   {
     path: '/post',
-    component: () => import('../views/PostView.vue'),
+    component: () => import('../views/Post/PostView.vue'),
     name: 'post',
     children: postRoutes
   },

@@ -5,7 +5,7 @@ const { post } = defineProps<{
 }>()
 </script>
 <template>
-  <router-link :to="{ name: 'post-id', params: { id:post.id }}" class="card">
+  <router-link :to="{ name: 'post.id', params: { id:post.id }}" class="card">
     <h2 class="card__title">{{ post.title }}</h2>
     <section class="card__body">  
       <p>{{ post.content }}</p>
