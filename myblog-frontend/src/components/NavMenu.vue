@@ -6,6 +6,7 @@
       <ul class="nav__menu">
         <li><router-link :to="{ name: 'home' }">Home</router-link></li>
         <li><router-link :to="{ name: 'post.create' }">New post</router-link></li>
+        <li><router-link :to="{ name: 'post.create' }">My posts</router-link></li>
       </ul>
     </nav>
 </template>
@@ -27,7 +28,8 @@ nav {
   list-style: none;
 }
 
-.nav__menu li a {
+
+a {
   color: var(--main-color);
   text-decoration: none;
 }

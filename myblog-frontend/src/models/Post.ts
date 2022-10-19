@@ -1,8 +1,9 @@
+import { User } from './User';
 export interface Post {
-  id: string
+  id: number
   title: string
   content: string
-  id_user: number
+  user: User
   created_at: Date
 }
 

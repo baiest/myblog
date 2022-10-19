@@ -48,6 +48,10 @@ button:focus-visible {
   font-size: 2rem;
 }
 
+main {
+  padding: 10px;
+}
+
 
 /* @media (prefers-color-scheme: light) {
    :root {

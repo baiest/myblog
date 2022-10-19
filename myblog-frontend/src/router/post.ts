@@ -7,7 +7,8 @@ export const postRoutes :RouteRecordRaw[] = [
   },
   {
     path: ':id',
-    component: () => import('../views/Post/PostView.vue'),
+    component: () => import('../views/Post/components/PostDetail.vue'),
+    props: (route) => ({ id: parseInt(route.params.id as string) }),
     name: 'post.id'
   },
 ]

@@ -6,7 +6,7 @@ type PostHandler struct {
 	postRepository repository.IPostRepository
 }
 
-func NewUserHandler() *PostHandler {
+func NewPostHandler() *PostHandler {
 	return &PostHandler{
 		postRepository: repository.PostRepository{},
 	}

@@ -14,6 +14,17 @@ const posts = reactive<Request<Post[]>>({
 
 const noData = computed(() => !posts.loading && !!!posts.data.length)
 
+const handleDelete = async (id: number) => {
+  try {
+    await PostService.delete(id)
+    const postIndex = posts.data.findIndex(post => post.id === id)
+    posts.data.splice(postIndex, 1)
+  } catch (error: Error) {
+    posts.error = error.message
+  }
+  
+}
+
 onMounted(async() => {
   try {
     posts.loading = true
@@ -30,7 +41,7 @@ onMounted(async() => {
   <p v-if="posts.loading">Cargando...</p>
   <section class="posts__container">
     <PostCard v-for="post in posts.data"
-  :key="post.id" :post="post"/>
+    :key="post.id" :post="post" @delete="handleDelete(post.id)"/>
   </section>
   <p v-if="noData">No hay datos</p>
 </template>
@@ -40,7 +51,7 @@ onMounted(async() => {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(auto-fit,  minmax(250px, 350px));
-  grid-auto-rows: minmax(250px, 350px);
+  grid-auto-rows: minmax(150px, 250px);
   justify-content: center;
   padding: 10px;
 }

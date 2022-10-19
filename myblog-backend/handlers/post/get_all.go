@@ -7,10 +7,10 @@ import (
 	"github.com/baiest/myblog/myblog-backend/models"
 )
 
-func (u *PostHandler) GetAll(w http.ResponseWriter, r *http.Request) {
+func (p *PostHandler) GetAll(w http.ResponseWriter, r *http.Request) {
 	var postResponse = []models.PostResponse{}
-	users := u.postRepository.GetAll()
-	for _, post := range users {
+	posts := p.postRepository.GetAll()
+	for _, post := range posts {
 		postResponse = append(postResponse, *models.PostToResponse(post))
 	}
 	json.NewEncoder(w).Encode(postResponse)
